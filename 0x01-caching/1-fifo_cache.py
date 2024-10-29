@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """FIFO caching"""
 
+
 from base_caching import BaseCaching
 
 
