@@ -16,10 +16,10 @@ class FIFOCache(BaseCaching):
         if not key or not item:
             return
 
-        if BaseCaching.MAX_ITEMS < len(self.cache_data):
-            discared = next(iter(self.cache_data))
-            self.cache_data.pop(discared)
-            print(f"DISCARD: {discared}")
+        if len(self.cache_data) >= BaseCaching.MAX_ITEMS:
+            discarded = next(iter(self.cache_data))
+            self.cache_data.pop(discarded )
+            print(f"DISCARD: {discarded}")
 
         self.cache_data[key] = item
 
