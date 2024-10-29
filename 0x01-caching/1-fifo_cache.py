@@ -17,8 +17,8 @@ class FIFOCache(BaseCaching):
             return
 
         if BaseCaching.MAX_ITEMS < len(self.cache_data):
-            (key := next(iter(self.cache_data)), self.cache_data.pop(key))
-            print(f"DISCARD: {key}")
+            discared = self.cache_data.pop(next(iter(self.cache_data)))
+            print(f"DISCARD: {discared}")
 
         self.cache_data[key] = item
 
