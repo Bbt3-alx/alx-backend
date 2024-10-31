@@ -7,6 +7,7 @@ from base_caching import BaseCaching
 
 class LIFOCache(BaseCaching):
     """A simple LIFO caching system"""
+
     def __init__(self):
         """Class initialization"""
         super().__init__()
