@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
-"""Basic Babel setup"""
+"""
+Basic Babel setup
+Force locale with URL parameter
+
+"""
 
 
 from flask import Flask, render_template, request
@@ -7,7 +11,10 @@ from flask_babel import Babel, _
 
 
 class Config:
-    """App configuration"""
+    """
+    App configuration Object,
+    set Babel’s default locale ("en") and timezone ("UTC").
+    """
 
     LANGUAGES = ["en", "fr"]
     BABEL_DEFAULT_LOCALE = "en"
@@ -22,7 +29,10 @@ babel = Babel(app)
 
 @babel.localeselector
 def get_locale() -> str:
-    """Get locale"""
+    """
+    Get locale
+    to determine the best match with our supported languages.
+    """
     lang = request.args.get("locale")
     if lang in app.config["LANGUAGES"]:
         return lang
@@ -32,7 +42,10 @@ def get_locale() -> str:
 
 @app.route("/")
 def home() -> str:
-    """Home page"""
+    """
+    Home page, that simply outputs “Welcome to Holberton”
+    as page title (<title>) and “Hello world” as header (<h1>).
+    """
     return render_template("4-index.html")
 
 
